@@ -29,6 +29,18 @@ Public Class Start
         ComBaud1.Text = ComBaud1.Items.Item(0)    'Set cmbBaud text to the first Baud rate on the list
     End Sub
 
+    Private Sub RefreshPorts_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReconButton2.Click
+        myPort = IO.Ports.SerialPort.GetPortNames() 'Get all com ports available
+        For i = 0 To UBound(myPort)
+            ComPort.Items.Add(myPort(i))
+            ComPort1.Items.Add(myPort(i))
+        Next
+        ComPort.Text = ComPort.Items.Item(0)    'Set cmbPort text to the first COM port detected
+        ComBaud.Text = ComBaud.Items.Item(0)    'Set cmbBaud text to the first Baud rate on the list
+        ComPort1.Text = ComPort1.Items.Item(0)    'Set cmbPort text to the first COM port detected
+        ComBaud1.Text = ComBaud1.Items.Item(0)    'Set cmbBaud text to the first Baud rate on the list
+    End Sub
+
     Private Sub btnConnect_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConnect.Click
         My.Settings.COMPort = ComPort.SelectedItem.ToString
         My.Settings.COMBaud = ComBaud.SelectedItem.ToString
@@ -41,4 +53,5 @@ Public Class Start
     Private Sub ReconButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReconButton1.Click
         Me.Close()
     End Sub
+    
 End Class

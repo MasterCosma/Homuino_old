@@ -29,17 +29,17 @@ SoftEasyTransfer ECap;
 SoftwareSerial CapComm(3, 4);
 struct CAP_STRUCTURE 
 {
-  int pressed; // impostato su 1 se il capacitivo è premuto
+  int pressed;
 };
 CAP_STRUCTURE CapData;
-int goout; // Entrata o Uscita
+int goout;
 
 // SEZIONE DICHIARAZIONI PIN
 int relay1 = 2;
 
 //SEZIONE CREPUSCOLARE
 const int sensorValue = 420;  //imposta il valore del sensore
-int ledCrepuscolo = 5; // connettere il LED al pin digitale 10
+int ledCrepuscolo = 13; // connettere il LED al pin digitale 10
 
 //SEZIONE STRINGA SERIALE
 char inData[20]; // Allocate some space for the string
@@ -155,7 +155,6 @@ void capAction() {
 }
 
 void GET() {   // Riceve i dati dalla seriale e li confronta
-  getSerial();
   if (Comp("CAON") == 0) {
     input = "CAON";
     Action();
@@ -256,7 +255,8 @@ void Temp2PC() { // Invia la temperatura al PC
   }
 }
 
-void getSerial() {
+
+char Comp(char* This) {  // FUNZIONE LETTURA STRINGA SERIALE
   while (Serial.available() > 0)
   {
     if(index < 19)
@@ -267,8 +267,7 @@ void getSerial() {
       inData[index] = '\0';
     }
   }
-}
-char Comp(char* This) {  // FUNZIONE LETTURA STRINGA SERIALE
+
   if (strcmp(inData,This)  == 0) {
     for (int i=0;i<19;i++) {
       inData[i]=0;
@@ -280,7 +279,6 @@ char Comp(char* This) {  // FUNZIONE LETTURA STRINGA SERIALE
     return(1);
   }
 }
-
 
 
 

@@ -23,22 +23,15 @@ Partial Class CommController
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox
         Me.SerialIN = New System.IO.Ports.SerialPort(Me.components)
         Me.SerialOUT = New System.IO.Ports.SerialPort(Me.components)
         Me.RichTextBox2 = New System.Windows.Forms.RichTextBox
         Me.RichTextBox3 = New System.Windows.Forms.RichTextBox
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.CleanTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.Alarm = New System.Windows.Forms.Timer(Me.components)
+        Me.CheckAlarm = New System.Windows.Forms.Timer(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label
         Me.SuspendLayout()
-        '
-        'RichTextBox1
-        '
-        Me.RichTextBox1.Location = New System.Drawing.Point(12, 12)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(474, 460)
-        Me.RichTextBox1.TabIndex = 0
-        Me.RichTextBox1.Text = ""
         '
         'SerialIN
         '
@@ -68,9 +61,22 @@ Partial Class CommController
         '
         Me.Timer1.Interval = 1
         '
-        'CleanTimer
+        'Alarm
         '
-        Me.CleanTimer.Interval = 1
+        '
+        'CheckAlarm
+        '
+        Me.CheckAlarm.Enabled = True
+        Me.CheckAlarm.Interval = 4000
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(31, 31)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(0, 25)
+        Me.Label1.TabIndex = 15
         '
         'CommController
         '
@@ -79,9 +85,9 @@ Partial Class CommController
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(498, 484)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.RichTextBox3)
         Me.Controls.Add(Me.RichTextBox2)
-        Me.Controls.Add(Me.RichTextBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -90,13 +96,15 @@ Partial Class CommController
         Me.ShowInTaskbar = False
         Me.TransparencyKey = System.Drawing.SystemColors.ControlDarkDark
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents SerialIN As System.IO.Ports.SerialPort
     Friend WithEvents SerialOUT As System.IO.Ports.SerialPort
     Friend WithEvents RichTextBox2 As System.Windows.Forms.RichTextBox
     Friend WithEvents RichTextBox3 As System.Windows.Forms.RichTextBox
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents CleanTimer As System.Windows.Forms.Timer
+    Friend WithEvents Alarm As System.Windows.Forms.Timer
+    Friend WithEvents CheckAlarm As System.Windows.Forms.Timer
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class

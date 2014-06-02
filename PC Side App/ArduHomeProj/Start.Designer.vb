@@ -35,6 +35,7 @@ Partial Class Start
         Me.Label2 = New System.Windows.Forms.Label
         Me.ReconButton1 = New ArduHomeProj.ReconButton
         Me.btnConnect = New ArduHomeProj.ReconButton
+        Me.ReconButton2 = New ArduHomeProj.ReconButton
         Me.ReconForm1.SuspendLayout()
         Me.ReconGroupBox1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -43,6 +44,7 @@ Partial Class Start
         'ReconForm1
         '
         Me.ReconForm1.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(41, Byte), Integer), CType(CType(41, Byte), Integer))
+        Me.ReconForm1.Controls.Add(Me.ReconButton2)
         Me.ReconForm1.Controls.Add(Me.ReconGroupBox1)
         Me.ReconForm1.Controls.Add(Me.GroupBox1)
         Me.ReconForm1.Controls.Add(Me.ReconButton1)
@@ -181,6 +183,18 @@ Partial Class Start
         Me.btnConnect.TabIndex = 10
         Me.btnConnect.Text = "Connetti ad ArduHome"
         '
+        'ReconButton2
+        '
+        Me.ReconButton2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ReconButton2.ForeColor = System.Drawing.Color.SteelBlue
+        Me.ReconButton2.Image = Nothing
+        Me.ReconButton2.Location = New System.Drawing.Point(136, 289)
+        Me.ReconButton2.Name = "ReconButton2"
+        Me.ReconButton2.NoRounding = False
+        Me.ReconButton2.Size = New System.Drawing.Size(97, 38)
+        Me.ReconButton2.TabIndex = 15
+        Me.ReconButton2.Text = "Aggiorna"
+        '
         'Start
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -212,5 +226,6 @@ Partial Class Start
     Friend WithEvents ComPort1 As System.Windows.Forms.ComboBox
     Friend WithEvents ComBaud1 As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents ReconButton2 As ArduHomeProj.ReconButton
 
 End Class
